@@ -24,3 +24,35 @@ services:
     environment:
       - GF_SECURITY_ADMIN_USER=admin
       - GF_SECURITY_ADMIN_PASSWORD=admin
+    depends_on:
+      - influx
+
+  mosquitto:
+    build: mosquitto/.
+    ports:
+      - "9001:9001"
+      - "1883:1883"
+
+  influx:
+    image: influxdb:1.5.4
+    environment:
+      - INFLUXDB_INIT_PWD="password"
+      - PRE_CREATE_DB="metrics"
+    ports:
+      - "8083:8083"
+      - "8086:8086"
+    depends_on:
+      - mosquitto
+    volumes:
+     - influx:/data
+
+  listener:
+    build: listener/.
+    container_name: listener
+    depends_on:
+      - mosquitto
+      - influx
+    command: python listener.py
+
+volumes:
+  influx:

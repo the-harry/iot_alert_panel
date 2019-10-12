@@ -15,7 +15,6 @@
   "editable": true,
   "gnetId": null,
   "graphTooltip": 0,
-  "iteration": 1570388713020,
   "links": [],
   "panels": [
     {
@@ -49,23 +48,24 @@
         "for": "5m",
         "frequency": "1m",
         "handler": 1,
-        "message": "xxxxxxxxxxxx",
+        "message": "3c71bfffa9c4",
         "name": "api",
         "noDataState": "no_data",
         "notifications": [
           {
-            "uid": "xxxxxxxxxxxx"
+            "uid": "3c71bfffa9c4"
           },
           {
             "uid": "api"
           }
         ]
       },
-      "aliasColors": {},
+      "aliasColors": {
+        "not_present": "red"
+      },
       "bars": false,
       "dashLength": 10,
       "dashes": false,
-      "datasource": "influx",
       "description": "",
       "fill": 1,
       "gridPos": {
@@ -109,7 +109,7 @@
             },
             {
               "params": [
-                "linear"
+                "none"
               ],
               "type": "fill"
             }
@@ -117,7 +117,7 @@
           "measurement": "metrics",
           "orderByTime": "ASC",
           "policy": "default",
-          "query": "SELECT count(\"co2\") FROM \"metrics\" WHERE (\"mac\" = '\"xxxxxxxxxxxx\"' AND \"present\" = '\"1\"') AND $timeFilter GROUP BY time($__interval) fill(linear)",
+          "query": "SELECT count(\"co2\") FROM \"metrics\" WHERE (\"mac\" = '\"3c71bfffa9c4\"' AND \"present\" = '\"1\"') AND $timeFilter GROUP BY time($__interval) fill(linear)",
           "rawQuery": false,
           "refId": "A",
           "resultFormat": "time_series",
@@ -125,13 +125,13 @@
             [
               {
                 "params": [
-                  "co2"
+                  "value"
                 ],
                 "type": "field"
               },
               {
                 "params": [],
-                "type": "count"
+                "type": "last"
               }
             ]
           ],
@@ -139,13 +139,13 @@
             {
               "key": "mac",
               "operator": "=",
-              "value": "\"xxxxxxxxxxxx\""
+              "value": "3c71bfffa9c4"
             },
             {
               "condition": "AND",
               "key": "present",
               "operator": "=",
-              "value": "\"1\""
+              "value": "1"
             }
           ]
         },
@@ -174,13 +174,13 @@
             [
               {
                 "params": [
-                  "co2"
+                  "value"
                 ],
                 "type": "field"
               },
               {
                 "params": [],
-                "type": "count"
+                "type": "last"
               }
             ]
           ],
@@ -188,13 +188,13 @@
             {
               "key": "mac",
               "operator": "=",
-              "value": "\"xxxxxxxxxxxx\""
+              "value": "3c71bfffa9c4"
             },
             {
               "condition": "AND",
               "key": "present",
               "operator": "=",
-              "value": "\"0\""
+              "value": "0"
             }
           ]
         }
@@ -212,7 +212,7 @@
       "timeFrom": null,
       "timeRegions": [],
       "timeShift": null,
-      "title": "Device xxxxxxxxxxxx",
+      "title": "Device 3c71bfffa9c4",
       "tooltip": {
         "shared": true,
         "sort": 0,
@@ -250,7 +250,7 @@
       }
     }
   ],
-  "refresh": false,
+  "refresh": "5s",
   "schemaVersion": 18,
   "style": "dark",
   "tags": [],
@@ -258,8 +258,8 @@
     "list": []
   },
   "time": {
-    "from": "2019-10-01T03:48:48.813Z",
-    "to": "2019-10-01T04:48:28.474Z"
+    "from": "now-5m",
+    "to": "now"
   },
   "timepicker": {
     "refresh_intervals": [
@@ -287,7 +287,7 @@
     ]
   },
   "timezone": "",
-  "title": "xxxxxxxxxxxx",
-  "uid": "xxxxxxxxxxxx",
+  "title": "3c71bfffa9c4",
+  "uid": "3c71bfffa9c4",
   "version": 1
 }
