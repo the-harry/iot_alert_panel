@@ -5,6 +5,8 @@ services:
 
   web:
     build: .
+    tty: true
+    stdin_open: true
     restart: always
     volumes:
       - .:/home
