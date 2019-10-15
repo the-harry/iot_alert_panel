@@ -38,8 +38,6 @@ services:
     ports:
       - "8083:8083"
       - "8086:8086"
-    depends_on:
-      - mosquitto
     volumes:
      - influx:/data
 
